@@ -9,4 +9,7 @@
 #include <sys/types.h>
 #include <ctype.h>
 
+char *trim(char *str);
+int _isspace(int c);
+
 #endif
