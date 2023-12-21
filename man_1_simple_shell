@@ -1,0 +1,85 @@
+.TH Simple_Shell 1 "19 December 2023" "Philippe, Carmen and Alexis" "v1.0" "Simple Shell man page"
+
+.SH NAME
+
+Simple Shell \- command line interpreter
+
+.SH SYNOPSIS
+
+.B [no options included]
+.br
+.B ./hsh
+
+.SH DESCRIPTION
+
+\fBSimple Shell\fR is a custom variation of a basic UNIX shell, a minimalist approach in its design and development.
+The \fBSimple Shell\fR allows the user to enter commands. These are then interpreted and executed by the operating system.
+Its design, compilation, and testing were carried out in an Ubuntu 20.04 LTS environment.
+
+.SH UTILISATION
+
+Use the GNU Compiler Collection (gcc) to compile hsh with the additional flags below:
+
+.B $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+.B - Interactive mode:
+
+.PP
+The \fBhsh\fR works by taking user input on the terminal after pressing the enter key.
+Note that the prompt ($) will appear and you will then be in interactive mode and able to enter commands followed by enter key.
+
+.B ($) ./hsh
+
+.B (is_hsh$) ls -l
+
+.B - Non-interactive mode:
+
+.PP
+Users can specify shell scripts to be executed by \fBhsh\fR usually through the use of pipes '|'.
+
+.B ($) echo \/"ls -l\/" | ./hsh
+
+.SH EXECUTABLES
+
+.PP
+If the first character of the command is a slash (/), the hsh search for it in the list of shell builtins.
+If there exists a shell builtin by that name, the builtin is invoked.
+
+.B ($) /bin/pwd
+
+.B /Users/username/Documents/HOLBERTON
+
+.B ($)
+
+.PP
+If not then the hsh will search in the user PATH environment if the command exist.
+
+.B ($) pwd
+
+.B /Users/username/Documents/HOLBERTON
+
+.B ($)
+
+.SH BUILTINS
+
+The following builtin commands are supported:
+
+.B exit
+- exits the program
+
+.B env
+- prints the environment variables
+
+.SH RETURN VALUE
+
+\fBhsh\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and other number indicating failure.
+
+All builtins return 0 on success and NULL on failure (indicated by a corresponding error message).
+
+.SH BUGS
+
+None known.
+
+.SH SEE ALSO
+
+sh, bash, zsh
