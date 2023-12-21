@@ -11,5 +11,6 @@
 
 char *trim(char *str);
 int _isspace(int c);
+char **tokenize(char *input);
 
 #endif

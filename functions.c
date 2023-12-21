@@ -44,3 +44,35 @@ char *trim(char *str)
 
 	return (str);
 }
+
+/**
+ * tokenize - tokenizes a string
+ * @input: string to tokenize
+ * Return: tokenized string
+*/
+
+char **tokenize(char *input)
+{
+	char **tokens = malloc(64 * sizeof(char *));
+	char *token;
+	int i = 0;
+
+	if (!tokens)
+	{
+		fprintf(stderr, "hsh: allocation error\n");
+		exit(EXIT_FAILURE);
+	}
+
+	token = strtok(input, " \t\r\n\a");
+
+	while (token != NULL)
+	{
+		tokens[i] = token;
+		i++;
+
+		token = strtok(NULL, " \t\r\n\a");
+	}
+
+	tokens[i] = NULL;
+	return (tokens);
+}
