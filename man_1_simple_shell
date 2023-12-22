@@ -78,7 +78,9 @@ All builtins return 0 on success and NULL on failure (indicated by a correspondi
 
 .SH BUGS
 
-None known.
+- Some unauthorized functions are used in this program: strdup, getenv, sscanf.
+
+- When using an empty command, the program prints ": not found". It should print nothing.
 
 .SH SEE ALSO
 
