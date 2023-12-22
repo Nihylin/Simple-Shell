@@ -1,12 +1,11 @@
-# <p align="center">SIMPLE_SHELL</p>
+<p align="center">
+	<img src="https://assets-global.website-files.com/64107f65f30b69371e3d6bfa/6480d9b63a806a1b35fec007_Holberton-p-500.png" style="margin:50px;"/>
+</p>
 
-    
-## Description
+# <p align="center">SIMPLE_SHELL</p>
 This project consists of building a C program to serve as a shell interface that accepts user commands then executes each command in a separate process. Your implementation will support input and output redirection.Completing this project will involve using the UNIX fork(), execute() and wait() system calls and can be completed on Linux system.
 
-## Requirements
-### General
-
+## ⚠️ Requirements
 * Allowed editors: vi, vim, emacs
 * All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
 * All your files should end with a new line
@@ -14,84 +13,69 @@ This project consists of building a C program to serve as a shell interface that
 * No more than 5 functions per file
 * All your header files should be include guarded
 
-### About Simple_Shell
-## Flowchart
+## 🧑‍💻 Installation
+Clone the Github repository using this command:
+```
+git clone https://github.com/Nihylin/holbertonschool-simple_shell.git
+```
 
-
-
-
-
-## File Usage
-
-| Name File | Description |
-| -------- | -------- |
-| .gitignore   | File used for ignore some file when whe push into GitHub.   |
-| main.h   | Header File. Lists the standard libraries used and integrates the prototypes we need to run the program properly. If one. If a necessary library or a used prototyp is missing in the file, the program will not be able to compile and therefore will not be executed.    |
-| main.c   | Creates an infinit loop which displays a prompt and reads the input typed by the user.The shell will behave differently depending on what the user types: **exit**: the shell exits. **An existing command** (e.g. `ls`, `pwd`), the shell executes it and returns to the beginning of the loop. **The path of an existing command** (e.g. `/bin/ls`), the shell executes the command and returns to the start of the loop. **The command does not exist**, the shell displays an error message
-| functions.c    | This file encompasses several integral functions utilized throughout the entire program. The execute() function plays a pivotal role by breaking down each word from user input, determining the command's path, and subsequently initiating a child process for execution. In the event that the command does not exist, the function gracefully handles the error.The tokenize() function serves to isolate individual words from user input, seamlessly incorporating them into a string array. This facilitates access to each word independently, and the function returns the generated array of strings.Furthermore,the trim() function modifies the string in place, removing leading and trailing spaces, then returns a pointer to the start of the resulting string.Lastly, the getPath() function proves instrumental in retrieving the complete path of a given command. It returns NULL if the specified command is not found..  |
-| man_1_simple_shell    | File that recreates a man page and explains how the shell we've created works.    |
-
-## Compilation
-
+## ▶️ Compilation
 You can compile your program using the following command :
-
-```bash
+```
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
-
-# <p align="">Testing</p>
-  
+## ⚙️ Testing
 Shell should work like this in interactive mode:
-
 ```
-
 $ ./hsh
-
 ($) /bin/ls
-
-AUTHORS
-README.md
-functions.c
-hsh
-main.c
-main.h
-man_1_simple_shell
-testadvanced12
-testadvanced12.c
-
+AUTHORS README.md functions.c hsh main.c main.h man_1_simple_shell
 ($)
-
-($)
- exit
-
+($) exit
 $
-
+```
+And like this in non-interactive mode:
+```
+$ echo "qwerty" | ./hsh
+qwerty: not found
+$ echo "/bin/ls" | ./hsh
+AUTHORS README.md functions.c hsh main.c main.h man_1_simple_shell
 ```
 
-# <p align="">MAN PAGE</p>
-  
-    
+## ⛔️ Exit
+When you want to exit the shell, you can use one of the following methods:
+
+1: Type the command "exit" (followed by a specified Exit Status or not)
+
+2: Press Ctrl + D
+
+hsh returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
+
+## ⬇️ Flowchart
+[lien]
+
+## 🗃️ File Usage
+| Name File | Description |
+| -------- | -------- |
+| .gitignore | File used to ignore unnecessary files and avoiding pushing them on the GitHub repository. |
+| main.h | Header File. Lists the standard libraries used and integrates the prototypes we need to run the program properly. If one. If a necessary library or a used prototyp is missing in the file, the program will not be able to compile and therefore will not be executed. |
+| main.c | The main.c file contains the main function for a shell program. It reads user input, trims leading and trailing whitespaces, and executes the command. It also handles the 'exit' command with an optional exit code. If the command is not found, it prints an error message and continues to the next iteration.
+| functions.c | This file encompasses several integral functions utilized throughout the entire program:<ul style="margin-top:20px"><li>The _isspace function in C checks if a given character (represented by its ASCII value) is a whitespace character. It returns 1 for whitespace characters and 0 otherwise.</li><li>The trim function in C removes leading and trailing whitespace characters from a given string. It returns the trimmed string.</li><li>The tokenize function splits a given string into tokens based on specified delimiters (spaces, tabs, newlines, etc.). It returns an array of these tokens.</li><li>The getPath function retrieves the full path of a given command by searching through the system's PATH environment variable. It returns the full path if found, or NULL if the command is not found in any of the directories listed in PATH.</li><li>The execute function takes a command as input, tokenizes it into arguments, determines the full path of the command, and then executes it using a child process. It returns the exit status of the command.</li></ul>|| man_1_simple_shell | File that recreates a man page and explains how the shell we've created works. |
+
+## 📄 Man page
+A man page is a form of software documentation. It provides comprehensive details about commands, system calls, libraries, and other aspects of the system. Users can access these man pages using the man command followed by the name of the command or library they want to learn about, as this one for the simple shell program :
 ```
-  man ./man_1_simple_shell
+man ./man_1_simple_shell
 ```
-# <p align="">Exit</p>
-  
 
-    
-hsh  returns  the  exit status of the last command executed, unless asyntax error occurs, with zero indicating success and non-zero  indicating failure.
+## 🪰 Bugs
+No known bugs.
 
-## Bugs
-
-No  known bugs.
-
-## 🙇 Authors
-#### Philippe  Wanquetin
-- Github: [https://github.com/Nihylin] 
+## ✏️ Authors
+### Philippe  Wanquetin
+- Github: [@nihylin](https://github.com/nihylin)
 ### Carmen Leila MUGISHA
-- Github: [https://github.com/CarmenLeila]
+- Github: [@CarmenLeila](https://github.com/CarmenLeila)
 ### Alexis Billemont
-- Github:[https://github.com/git-alexis]
-
-License
-- « Copyright © <22/12/2023>, <copyright Philippe Wanquetin & Carmen Leila MUGISHA & Alexis Billemont>
+- Github:[@git-alexis](https://github.com/git-alexis)
